@@ -10,6 +10,7 @@ const Register = () => {
         <img src={RegisterBg} className="bg-image" alt="imageBg" />
       </div>
       <div className="right">
+        <p className="p">Selamat Datang, Silahkan Mendaftar Dahulu</p>
         <p className="title">Register</p>
         <Input label="Full Name" placeholder="Full Name" />
         <Gap height={18} />
