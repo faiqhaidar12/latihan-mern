@@ -1,13 +1,13 @@
 import React from "react";
 import "./register.scss";
-import { RegisterBg } from "../../assets";
+import { RegisterNew } from "../../assets";
 import { Button, Gap, Input, Link } from "../../components";
 
 const Register = () => {
   return (
     <div className="main-page">
       <div className="left">
-        <img src={RegisterBg} className="bg-image" alt="imageBg" />
+        <img src={RegisterNew} className="bg-image" alt="imageBg" />
       </div>
       <div className="right">
         <p className="p">Selamat Datang, Silahkan Mendaftar Dahulu</p>
