@@ -1,21 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Login, MainApp, Register } from "../../pages";
 
 const Routess = () => {
   return (
     <Router>
-      <Routes>
+      <Switch>
         <Route path="/login">
-          <Route index element={<Login />} />
+          <Login />
         </Route>
         <Route path="/register">
-          <Route index element={<Register />} />
+          <Register />
         </Route>
         <Route path="/">
-          <Route index element={<MainApp />} />
+          <MainApp />
         </Route>
-      </Routes>
+      </Switch>
     </Router>
   );
 };
