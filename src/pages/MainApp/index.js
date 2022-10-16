@@ -7,7 +7,7 @@ import Home from "../Home";
 const MyApp = () => {
   return (
     <div>
-      <p>tes Header</p>
+      <p>Header</p>
       <Router>
         <Switch>
           <Route path="/create-blog">
