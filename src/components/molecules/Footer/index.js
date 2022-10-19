@@ -23,7 +23,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright">
-        <p>Copyright</p>
+        <p>Copyright Semiclon 2022</p>
       </div>
     </div>
   );
