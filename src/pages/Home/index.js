@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BlogItem, Button, Gap } from "../../components";
+import { useHistory } from "react-router-dom";
 
 import "./home.scss";
 
 const Home = () => {
+  const history = useHistory();
+  history.push("/create-blog");
+
   return (
     <div className="home-page-wrapper">
       <div className="create-wrapper">
