@@ -1,21 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Login, MainApp, Register } from "../../pages";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Home, Login, Register } from "../../pages";
+import CreateBlog from "../../pages/CreateBlog";
+import DetailBlog from "../../pages/DetailBlog";
+
+import "./mainApp.scss";
 
 const Routess = () => {
   return (
     <Router>
-      <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/">
-          <MainApp />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/*" element={<Home />} />
+        <Route path="/create-blog" element={<CreateBlog />} />
+        <Route path="/detail-blog" element={<DetailBlog />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </Router>
   );
 };
