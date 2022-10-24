@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { RegisterNew } from "../../assets";
-import { Footer, Header } from "../../components";
+import { Footer, Header, Link } from "../../components";
 
 import "./detailblog.scss";
 
 const DetailBlog = () => {
+  const navigate = useNavigate();
   return (
     <div className="main-app-wrapper">
       <Header />
@@ -20,6 +22,7 @@ const DetailBlog = () => {
             culpa. Ut Lorem sint laboris irure. Ullamco sunt dolor enim aute.
             Sint reprehenderit ullamco enim tempor magna.
           </p>
+          <Link title="Kembali Ke Home" onClick={() => navigate("/")} />
         </div>
       </div>
       <Footer />

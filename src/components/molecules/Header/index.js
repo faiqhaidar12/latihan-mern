@@ -5,7 +5,9 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <div className="header">
-      <p className="logo-app">Semiclon</p>
+      <p className="logo-app" onClick={() => navigate("/")}>
+        Semiclon
+      </p>
       <p className="menu-item" onClick={() => navigate("/login")}>
         Logout
       </p>

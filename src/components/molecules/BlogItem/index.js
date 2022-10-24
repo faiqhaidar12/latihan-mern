@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { RegisterBg } from "../../../assets";
+import { Button, Gap } from "../../atoms";
 
 import "./blogitem.scss";
 
 const BlogItem = () => {
+  const navigate = useNavigate();
   return (
     <div className="blog-item">
       <img className="image-thumb" src={RegisterBg} alt="post" />
@@ -16,6 +19,8 @@ const BlogItem = () => {
           commodo tempor sunt id exercitation excepteur. Culpa culpa in est
           proident velit magna culpa veniam dolor commodo ea.
         </p>
+        <Gap height={20} />
+        <Button title="Baca" onClick={() => navigate("/detail-blog")} />
       </div>
     </div>
   );
