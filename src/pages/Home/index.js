@@ -1,10 +1,20 @@
-import React from "react";
+import Axios from "axios";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogItem, Button, Footer, Gap, Header } from "../../components";
 
 import "./home.scss";
 
 const Home = () => {
+  useEffect(() => {
+    Axios.get("http://localhost:4000/v1/blog/posts")
+      .then((result) => {
+        console.log("Data Api", result.data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  }, []);
   let navigate = useNavigate();
   const ButtonClick = () => {
     navigate("/create-blog");
