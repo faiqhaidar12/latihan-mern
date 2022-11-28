@@ -1,15 +1,22 @@
 import Axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogItem, Button, Footer, Gap, Header } from "../../components";
+import { useSelector } from "react-redux";
 
 import "./home.scss";
 
 const Home = () => {
+  const [dataBlog, setDataBlog] = useState([]);
+  const stateGlobal = useSelector((state) => state);
+  console.log("State Global :", stateGlobal);
   useEffect(() => {
-    Axios.get("http://localhost:4000/v1/blog/posts")
+    Axios.get("http://localhost:4000/v1/blog/posts?page=1&perPage=6")
       .then((result) => {
         console.log("Data Api", result.data);
+        const responseApi = result.data;
+
+        setDataBlog(responseApi.data);
       })
       .catch((err) => {
         console.log("error", err);
@@ -29,10 +36,18 @@ const Home = () => {
           </div>
           <Gap height={20} />
           <div className="content-wrapper">
-            <BlogItem />
-            <BlogItem />
-            <BlogItem />
-            <BlogItem />
+            {dataBlog.map((blog) => {
+              return (
+                <BlogItem
+                  key={blog._id}
+                  image={`http://localhost:4000/${blog.image}`}
+                  title={blog.title}
+                  body={blog.body}
+                  author={blog.author.name}
+                  date={blog.createdAt}
+                />
+              );
+            })}
           </div>
           <div className="pagination">
             <Button title="Previous" />

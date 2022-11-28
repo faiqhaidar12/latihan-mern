@@ -1,8 +1,13 @@
-import { Routess } from "../config";
+import { Routess, store } from "../config";
+import { Provider } from "react-redux";
 import "./App.css";
 
 function App() {
-  return <Routess />;
+  return (
+    <Provider store={store}>
+      <Routess />
+    </Provider>
+  );
 }
 
 export default App;
