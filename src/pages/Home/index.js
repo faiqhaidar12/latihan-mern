@@ -1,27 +1,26 @@
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogItem, Button, Footer, Gap, Header } from "../../components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./home.scss";
 
 const Home = () => {
-  const [dataBlog, setDataBlog] = useState([]);
-  const stateGlobal = useSelector((state) => state);
-  console.log("State Global :", stateGlobal);
+  const { dataBlog } = useSelector((state) => state.homeReducer);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     Axios.get("http://localhost:4000/v1/blog/posts?page=1&perPage=6")
       .then((result) => {
-        console.log("Data Api", result.data);
         const responseApi = result.data;
-
-        setDataBlog(responseApi.data);
+        dispatch({ type: "UPDATE_DATA_BLOG", payload: responseApi.data });
       })
       .catch((err) => {
         console.log("error", err);
       });
   }, []);
+
   let navigate = useNavigate();
   const ButtonClick = () => {
     navigate("/create-blog");
