@@ -6,7 +6,7 @@ import "./blogitem.scss";
 
 const BlogItem = (props) => {
   const navigate = useNavigate();
-  const { image, body, title, author, date } = props;
+  const { image, body, title, author, date, _id } = props;
   return (
     <div className="blog-item">
       <img className="image-thumb" src={image} alt="post" />
@@ -17,7 +17,10 @@ const BlogItem = (props) => {
         </p>
         <p className="body">{body}</p>
         <Gap height={20} />
-        <Button title="Baca" onClick={() => navigate("/detail-blog")} />
+        <Button
+          title="Baca"
+          onClick={() => navigate(`/detail-blog/${props._id}`)}
+        />
       </div>
     </div>
   );
